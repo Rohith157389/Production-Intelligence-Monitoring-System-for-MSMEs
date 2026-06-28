@@ -1,0 +1,30 @@
+{
+  "name": "pmrs-backend",
+  "version": "1.0.0",
+  "description": "Production Monitoring & Reporting System - Backend",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "monitor": "node monitor.js COM8 115200",
+    "bridge": "node serial_bridge.js --port COM8 --baud 115200 --url http://localhost:5000/api/sensor-data --key esp32-dev-key",
+    "sse:monitor": "node sse_monitor.js",
+    "db:init": "node src/scripts/initDb.js",
+    "db:seed": "node src/scripts/seed.js",
+    "db:seed-readings": "node src/scripts/seedReadings.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "axios": "^1.16.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "minimist": "^1.2.8",
+    "pdfkit": "^0.15.0",
+    "pg": "^8.13.0",
+    "pg-mem": "^3.0.14",
+    "serialport": "^13.0.0"
+  }
+}

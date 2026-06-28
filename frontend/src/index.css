@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-slate-900 antialiased;
+    background-color: #F9FAFB;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded font-semibold transition-all disabled:opacity-50;
+    background-color: #374151;
+    color: #FFFFFF;
+  }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-secondary {
+    @apply px-3 py-1.5 rounded text-sm font-medium transition-colors;
+    background-color: #FFFFFF;
+    color: #374151;
+    border: 1px solid #E5E7EB;
+  }
+  .btn-secondary:hover { background-color: #F3F4F6; }
+  .input-field {
+    @apply w-full px-3 py-2 rounded outline-none transition;
+    background-color: #FFFFFF;
+    color: #111827;
+    border: 1px solid #D1D5DB;
+  }
+  .input-field:focus {
+    border-color: #374151;
+    box-shadow: 0 0 0 2px rgba(55, 65, 81, 0.25);
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide mb-1;
+    color: #4B5563;
+  }
+  .ind-panel, .card {
+    @apply rounded-lg p-5 shadow-sm;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F9FAFB; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
