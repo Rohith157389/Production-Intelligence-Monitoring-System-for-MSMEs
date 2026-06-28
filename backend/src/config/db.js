@@ -166,6 +166,13 @@ async function setupDatabase() {
   try {
     await pool.query('SELECT 1');
     console.log('Connected to PostgreSQL.');
+    const client = await pool.connect();
+    try {
+      await runSchema(client, false);
+      await seedIfEmpty(client);
+    } finally {
+      client.release();
+    }
   } catch (err) {
     console.warn('PostgreSQL unavailable, falling back to in-memory database.');
     process.env.USE_MEMORY_DB = 'true';
